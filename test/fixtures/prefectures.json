@@ -1,0 +1,8 @@
+{
+  "message": null,
+  "result": [
+    {"prefCode": 1, "prefName": "北海道"},
+    {"prefCode": 13, "prefName": "東京都"},
+    {"prefCode": 47, "prefName": "沖縄県"}
+  ]
+}

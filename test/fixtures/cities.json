@@ -1,0 +1,8 @@
+{
+  "message": null,
+  "result": [
+    {"prefCode": 13, "cityCode": "13100", "cityName": "東京都区部", "bigCityFlag": "2"},
+    {"prefCode": 13, "cityCode": "13101", "cityName": "千代田区", "bigCityFlag": "1"},
+    {"prefCode": 13, "cityCode": "13102", "cityName": "中央区", "bigCityFlag": "1"}
+  ]
+}

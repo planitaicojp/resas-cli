@@ -38,7 +38,7 @@ var rootCmd = &cobra.Command{
 		}
 		if flagNoInput {
 			prompt.NoInputFlag = true
-			os.Setenv("RESAS_NO_INPUT", "1")
+			_ = os.Setenv("RESAS_NO_INPUT", "1")
 		}
 	},
 }
@@ -69,7 +69,7 @@ func Execute() {
 			errJSON := cerrors.ToJSON(err)
 			enc := json.NewEncoder(os.Stderr)
 			enc.SetIndent("", "  ")
-			enc.Encode(errJSON)
+			_ = enc.Encode(errJSON)
 		} else {
 			fmt.Fprintln(os.Stderr, err)
 		}

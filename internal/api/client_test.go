@@ -18,7 +18,7 @@ func TestClientGet(t *testing.T) {
 			t.Error("User-Agent is empty")
 		}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]any{
+		_ = json.NewEncoder(w).Encode(map[string]any{
 			"result": []map[string]any{{"prefCode": 13, "prefName": "東京都"}},
 		})
 	}))
@@ -48,7 +48,7 @@ func TestClientGet(t *testing.T) {
 func TestClientAuthError(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusForbidden)
-		json.NewEncoder(w).Encode(map[string]string{"message": "Forbidden."})
+		_ = json.NewEncoder(w).Encode(map[string]string{"message": "Forbidden."})
 	}))
 	defer srv.Close()
 
@@ -71,7 +71,7 @@ func TestClientRetryOn429(t *testing.T) {
 			return
 		}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
+		_ = json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
 	}))
 	defer srv.Close()
 

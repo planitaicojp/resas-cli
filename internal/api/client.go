@@ -63,7 +63,7 @@ func (c *Client) Get(path string, result any) error {
 		}
 
 		if resp.StatusCode == http.StatusTooManyRequests || resp.StatusCode >= 500 {
-			resp.Body.Close()
+			_ = resp.Body.Close()
 			if attempt < maxRetries {
 				time.Sleep(time.Duration(attempt+1) * time.Second)
 				continue
@@ -72,7 +72,7 @@ func (c *Client) Get(path string, result any) error {
 		break
 	}
 
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if Verbose {
 		fmt.Fprintf(os.Stderr, "<<< %d %s\n", resp.StatusCode, resp.Status)

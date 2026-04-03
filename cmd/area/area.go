@@ -116,7 +116,9 @@ func SelectPrefecture(client *api.Client) (int, error) {
 	}
 
 	var code int
-	fmt.Sscanf(val, "%d", &code)
+	if _, err := fmt.Sscanf(val, "%d", &code); err != nil {
+		return 0, fmt.Errorf("都道府県コードの解析に失敗: %w", err)
+	}
 	return code, nil
 }
 

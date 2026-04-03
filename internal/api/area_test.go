@@ -20,7 +20,7 @@ func TestGetPrefectures(t *testing.T) {
 			t.Errorf("path = %q, want /api/v1/prefectures", r.URL.Path)
 		}
 		w.Header().Set("Content-Type", "application/json")
-		w.Write(fixture)
+		_, _ = w.Write(fixture)
 	}))
 	defer srv.Close()
 
@@ -54,7 +54,7 @@ func TestGetCities(t *testing.T) {
 			t.Errorf("prefCode = %q", r.URL.Query().Get("prefCode"))
 		}
 		w.Header().Set("Content-Type", "application/json")
-		w.Write(fixture)
+		_, _ = w.Write(fixture)
 	}))
 	defer srv.Close()
 

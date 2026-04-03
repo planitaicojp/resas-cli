@@ -34,7 +34,9 @@ func (f *TableFormatter) Format(w io.Writer, data any) error {
 		name := strings.Split(tag, ",")[0]
 		headers = append(headers, strings.ToUpper(name))
 	}
-	fmt.Fprintln(tw, strings.Join(headers, "\t"))
+	if _, err := fmt.Fprintln(tw, strings.Join(headers, "\t")); err != nil {
+		return err
+	}
 
 	for i := 0; i < v.Len(); i++ {
 		row := v.Index(i)
@@ -46,7 +48,9 @@ func (f *TableFormatter) Format(w io.Writer, data any) error {
 			}
 			vals = append(vals, fmt.Sprintf("%v", row.Field(j).Interface()))
 		}
-		fmt.Fprintln(tw, strings.Join(vals, "\t"))
+		if _, err := fmt.Fprintln(tw, strings.Join(vals, "\t")); err != nil {
+			return err
+		}
 	}
 
 	return tw.Flush()

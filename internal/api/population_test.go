@@ -26,7 +26,7 @@ func TestGetPopulationComposition(t *testing.T) {
 			t.Errorf("cityCode = %q", r.URL.Query().Get("cityCode"))
 		}
 		w.Header().Set("Content-Type", "application/json")
-		w.Write(fixture)
+		_, _ = w.Write(fixture)
 	}))
 	defer srv.Close()
 

@@ -8,6 +8,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/planitaicojp/resas-cli/cmd/area"
+	configcmd "github.com/planitaicojp/resas-cli/cmd/config"
 	"github.com/planitaicojp/resas-cli/internal/api"
 	cerrors "github.com/planitaicojp/resas-cli/internal/errors"
 	"github.com/planitaicojp/resas-cli/internal/prompt"
@@ -54,6 +55,8 @@ func init() {
 
 	area.SetParentAccessors(GetAPIKeyFlag, GetFormatFlag)
 	rootCmd.AddCommand(area.Cmd)
+
+	rootCmd.AddCommand(configcmd.Cmd)
 }
 
 func Execute() {

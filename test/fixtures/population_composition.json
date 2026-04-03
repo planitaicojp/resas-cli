@@ -1,0 +1,28 @@
+{
+  "message": null,
+  "result": {
+    "boundaryYear": 2020,
+    "data": [
+      {
+        "label": "総人口",
+        "data": [
+          {"year": 1980, "value": 11618281},
+          {"year": 1990, "value": 11855563},
+          {"year": 2000, "value": 12064101},
+          {"year": 2010, "value": 13159388},
+          {"year": 2020, "value": 13960000}
+        ]
+      },
+      {
+        "label": "年少人口",
+        "data": [
+          {"year": 1980, "value": 2499862},
+          {"year": 1990, "value": 1702837},
+          {"year": 2000, "value": 1517076},
+          {"year": 2010, "value": 1522755},
+          {"year": 2020, "value": 1520000}
+        ]
+      }
+    ]
+  }
+}

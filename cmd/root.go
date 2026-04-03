@@ -9,6 +9,7 @@ import (
 
 	"github.com/planitaicojp/resas-cli/cmd/area"
 	configcmd "github.com/planitaicojp/resas-cli/cmd/config"
+	"github.com/planitaicojp/resas-cli/cmd/population"
 	"github.com/planitaicojp/resas-cli/internal/api"
 	cerrors "github.com/planitaicojp/resas-cli/internal/errors"
 	"github.com/planitaicojp/resas-cli/internal/prompt"
@@ -57,6 +58,9 @@ func init() {
 	rootCmd.AddCommand(area.Cmd)
 
 	rootCmd.AddCommand(configcmd.Cmd)
+
+	population.SetParentAccessors(GetAPIKeyFlag, GetFormatFlag)
+	rootCmd.AddCommand(population.Cmd)
 }
 
 func Execute() {
